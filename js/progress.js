@@ -114,7 +114,8 @@ window.Progress = {
                 }).join('')}
             </div>
 
-            <div style="text-align:center;margin-top:2rem">
+            <div style="text-align:center;margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+                <button class="btn btn-gold" data-share-progress>📋 Enviar Reporte de Progreso</button>
                 <button class="btn btn-sm btn-outline" data-reset-progress>🗑️ Reiniciar Progreso</button>
             </div>
         </div>`;
@@ -136,6 +137,10 @@ window.Progress = {
                 window.App.checkAchievements();
                 
                 checkItem.classList.toggle('checked');
+            }
+            const shareBtn = e.target.closest('[data-share-progress]');
+            if (shareBtn) {
+                window.App.shareProgress();
             }
             const resetBtn = e.target.closest('[data-reset-progress]');
             if (resetBtn) {
